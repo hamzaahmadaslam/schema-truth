@@ -9,8 +9,6 @@ export const DEFAULT_TIMEOUT_SECONDS = 10;
 export const STATE_BUDGET = 16_000;
 /** Estimated tokens of state plus questions per request. TypeSafe allows 64k for the state plus all questions. */
 export const REQUEST_BUDGET = 48_000;
-/** US dollars per million input tokens for jev-1.13. Output tokens are free. */
-export const PRICE_PER_MILLION = 0.042;
 const CONCURRENCY = 4;
 
 /** A rough token count: about four characters per token, which fits English prose. Used for budgets and estimates. */
@@ -120,11 +118,11 @@ export function planRequests(pages, { model = DEFAULT_MODEL } = {}) {
   return { pages, requests, parts };
 }
 
-/** Estimated input tokens and cost of a plan, for --dry-run. */
+/** Estimated input tokens of a plan, per request and in total, for --dry-run. */
 export function estimatePlan(plan) {
   const perRequest = plan.requests.map((request) => estimateTokens(JSON.stringify(request.body)));
   const tokens = perRequest.reduce((sum, n) => sum + n, 0);
-  return { perRequest, tokens, cost: (tokens * PRICE_PER_MILLION) / 1e6 };
+  return { perRequest, tokens };
 }
 
 // Rounding keeps float noise (1 - 0.8 is 0.19999999999999996) from moving an answer that sits on the threshold.

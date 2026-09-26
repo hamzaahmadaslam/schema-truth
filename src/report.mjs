@@ -1,6 +1,6 @@
 // Formats results for people (the report, the dry run) and for programs (JSON). Every word printed comes from the
 // pages or from the fixed text in this file; Jev returns only probabilities.
-import { estimatePlan, estimateTokens, PRICE_PER_MILLION, QUESTION } from "./check.mjs";
+import { estimatePlan, estimateTokens, QUESTION } from "./check.mjs";
 
 export const POLICY_URL = "https://developers.google.com/search/docs/appearance/structured-data/sd-policies";
 const ORDER = ["unsupported", "review", "supported"];
@@ -10,13 +10,6 @@ const count = (n) => n.toLocaleString("en-US");
 const plural = (n, word) => `${count(n)} ${word}${n === 1 ? "" : "s"}`;
 const p2 = (value) => (value === null ? "  - " : value.toFixed(2));
 const round6 = (value) => Math.round(value * 1e6) / 1e6;
-
-/** A cost in dollars, with enough decimals to show what is usually a fraction of a cent. */
-export function money(cost) {
-  if (cost === 0) return "$0";
-  if (cost < 0.001) return "under $0.001";
-  return `about $${cost < 0.01 ? cost.toFixed(4) : cost.toFixed(2)}`;
-}
 
 /** Text on one line, cut at a word boundary. */
 export function preview(text, max = 90) {
@@ -72,12 +65,10 @@ function pageLines(page) {
 /** The human-readable report: counts, then every page with its claims, the doubtful ones first. */
 export function formatReport(result) {
   const { summary, usage, threshold } = result;
-  const cost = (usage.input_tokens * PRICE_PER_MILLION) / 1e6;
   const lines = [
     `schema-truth: ${plural(summary.claims, "claim")} on ${plural(summary.pages, "page")}`,
     usage.requests
-      ? `Model ${result.model}, ${plural(usage.requests, "request")}, ${count(usage.input_tokens)} input tokens ` +
-        `(${money(cost)}), threshold ${threshold}`
+      ? `Model ${result.model}, ${plural(usage.requests, "request")}, ${count(usage.input_tokens)} input tokens, threshold ${threshold}`
       : `Nothing to ask TypeSafe, threshold ${threshold}`,
     "",
     `supported ${summary.supported}   unsupported ${summary.unsupported}   review ${summary.review}` +
@@ -122,14 +113,13 @@ function pageJson(page) {
 
 /** The report as JSON: every page and claim, its verdict and the raw probability. */
 export function toJson(result, meta) {
-  const cost = (result.usage.input_tokens * PRICE_PER_MILLION) / 1e6;
   return {
     tool: "schema-truth",
     version: meta.version,
     threshold: result.threshold,
     model: result.model,
     summary: result.summary,
-    usage: { ...result.usage, estimated_cost_usd: round6(cost) },
+    usage: result.usage,
     pages: result.pages.map((page) => ({
       ...pageJson(page),
       parts: page.parts,
@@ -159,8 +149,7 @@ export function formatDryRun(plan, meta) {
   if (plan.pages.length > shown.length) lines.push(`  and ${plural(plan.pages.length - shown.length, "more page")}`);
   lines.push(
     "",
-    `${plural(plan.requests.length, "request")} to ${meta.model}, about ${count(estimate.tokens)} input tokens ` +
-      `(${money(estimate.cost)} at $${PRICE_PER_MILLION} per million input tokens)`,
+    `${plural(plan.requests.length, "request")} to ${meta.model}, about ${count(estimate.tokens)} input tokens`,
   );
   const listed = shown.filter((page) => page.claims.length);
   if (listed.length) {
@@ -189,7 +178,6 @@ export function dryRunJson(plan, meta) {
       requests: plan.requests.length,
     },
     estimated_input_tokens: estimate.tokens,
-    estimated_cost_usd: round6(estimate.cost),
     pages: plan.pages.map((page) => ({ ...pageJson(page), claims: page.claims.map(claimJson) })),
     requests: plan.requests.map((request, i) => ({
       source: request.page.source,

@@ -5,7 +5,7 @@ Dry run: nothing was sent to TypeSafe.
   shoe-care-guide.html  2 JSON-LD blocks (BlogPosting, Person, Organization), 1 not valid JSON, 6 claims, visible text about 94 tokens
   trail-runner.html     1 JSON-LD block (Product), 8 claims, visible text about 70 tokens
 
-3 requests to jev-latest, about 3,420 input tokens (under $0.001 at $0.042 per million input tokens)
+3 requests to jev-latest, about 3,420 input tokens
 
 Each claim is one yes/no question (noul), asked against the page's visible text:
   Is the value in `claim` supported by `visible_text`, the text a visitor sees on the page?

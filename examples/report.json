@@ -14,8 +14,7 @@
   "usage": {
     "requests": 3,
     "input_tokens": 3420,
-    "output_tokens": 0,
-    "estimated_cost_usd": 0.000144
+    "output_tokens": 0
   },
   "pages": [
     {

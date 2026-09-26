@@ -1,5 +1,5 @@
 schema-truth: 20 claims on 3 pages
-Model jev-1.13.0, 3 requests, 3,420 input tokens (under $0.001), threshold 0.8
+Model jev-1.13.0, 3 requests, 3,420 input tokens, threshold 0.8
 
 supported 12   unsupported 6   review 2
 

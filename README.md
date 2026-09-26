@@ -135,7 +135,7 @@ the tests, not recorded from TypeSafe, and show the report format. Your numbers 
 
 ```text
 schema-truth: 20 claims on 3 pages
-Model jev-1.13.0, 3 requests, 3,420 input tokens (under $0.001), threshold 0.8
+Model jev-1.13.0, 3 requests, 3,420 input tokens, threshold 0.8
 
 supported 12   unsupported 6   review 2
 
@@ -222,18 +222,18 @@ them. The tool writes nothing to disk and makes no other network requests, for t
 - The tool reports and never edits anything. Read the review list yourself, and check a sample of verdicts on your
   own pages before you rely on a threshold.
 
-## Cost
+## Token use
 
-TypeSafe charges $0.042 per million input tokens for jev-1.13; output tokens are free. The visible text is most of
-each request, and each claim adds about 160 tokens. By the tool's own estimate (four characters per token):
+The visible text is most of each request, and each claim adds about 160 tokens. By the tool's own estimate (four
+characters per token):
 
-| Run                                                             | Requests | Input tokens   | Cost          |
-| --------------------------------------------------------------- | -------- | -------------- | ------------- |
-| The example: 20 claims on 3 short pages                         | 3        | about 3,400    | under $0.001  |
-| A product page with about 9,300 tokens of text and 11 claims    | 1        | about 11,100   | under $0.001  |
-| 1,000 pages like that one                                       | 1,000    | about 11.1 million | about $0.47 |
+| Run                                                             | Requests | Input tokens       |
+| --------------------------------------------------------------- | -------- | ------------------ |
+| The example: 20 claims on 3 short pages                         | 3        | about 3,400        |
+| A product page with about 9,300 tokens of text and 11 claims    | 1        | about 11,100       |
+| 1,000 pages like that one                                       | 1,000    | about 11.1 million |
 
-`--dry-run` prints the estimate for your own pages before you spend anything.
+`--dry-run` prints the estimate for your own pages before anything is sent.
 
 ## License
 
