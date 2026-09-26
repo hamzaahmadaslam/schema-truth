@@ -1,0 +1,48 @@
+schema-truth: 20 claims on 3 pages
+Model jev-1.13.0, 3 requests, 3,420 input tokens (under $0.001), threshold 0.8
+
+supported 12   unsupported 6   review 2
+
+delivery-faq.html
+  1 JSON-LD block (FAQPage); 6 claims: unsupported 1, review 1, supported 4
+  unsupported  0.04  answer to "Can I return shoes I have worn?": Yes, within 60 days of delivery.
+                     FAQPage; block 1, mainEntity[1].acceptedAnswer.text
+  review       0.46  answer to "Do you ship to Canada?": Yes, we ship to every province.
+                     FAQPage; block 1, mainEntity[2].acceptedAnswer.text
+  supported    0.98  question: How long does delivery take?
+  supported    0.95  answer to "How long does delivery take?": Orders arrive in 2 to 4 working days.
+  supported    0.97  question: Can I return shoes I have worn?
+  supported    0.94  question: Do you ship to Canada?
+
+shoe-care-guide.html
+  2 JSON-LD blocks (BlogPosting, Person, Organization), 1 not valid JSON; 6 claims: unsupported 2, supported 4
+  block 2 (line 41) is not valid JSON; its claims were not checked
+  unsupported  0.06  date modified: 19 August 2026
+                     How to dry wet trail shoes (BlogPosting); block 1, @graph[0].dateModified
+  unsupported  0.03  phone number: +1-415-555-0142
+                     Northfield Outfitters (Organization); block 1, @graph[2].telephone
+  supported    0.98  headline: How to dry wet trail shoes
+  supported    0.96  author: Rosa Lind
+  supported    0.93  date published: 2 March 2026
+  supported    0.87  address: 14 Quarry Lane, Sampleton, 00014, US
+
+trail-runner.html
+  1 JSON-LD block (Product); 8 claims: unsupported 3, review 1, supported 4
+  unsupported  0.08  number of ratings: 312
+                     Trail Runner 2 (Product); block 1, aggregateRating.ratingCount
+  unsupported  0.05  review author: Sam P.
+                     Trail Runner 2 (Product); block 1, review[1].author
+  unsupported  0.04  rating in the review by Sam P.: 2 out of 5
+                     Trail Runner 2 (Product); block 1, review[1].reviewRating.ratingValue
+  review       0.41  price: 129.00 USD
+                     Trail Runner 2 (Product); block 1, offers.price
+  supported    0.95  availability: in stock
+  supported    0.97  average rating: 4.6 out of 5
+  supported    0.96  review author: Dana K.
+  supported    0.93  rating in the review by Dana K.: 5 out of 5
+
+supported: the visible text shows the value (probability at or above 0.8).
+unsupported: the visible text does not show it (probability at or below 0.2). Google asks that structured
+  data describe only content visible to readers of the page:
+  https://developers.google.com/search/docs/appearance/structured-data/sd-policies
+review: Jev was not sure either way, or had no text to read. Check these on the page yourself.

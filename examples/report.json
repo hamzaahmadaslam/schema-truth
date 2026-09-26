@@ -1,0 +1,375 @@
+{
+  "tool": "schema-truth",
+  "version": "1.0.0",
+  "threshold": 0.8,
+  "model": "jev-1.13.0",
+  "summary": {
+    "pages": 3,
+    "pages_not_read": 0,
+    "claims": 20,
+    "supported": 12,
+    "unsupported": 6,
+    "review": 2
+  },
+  "usage": {
+    "requests": 3,
+    "input_tokens": 3420,
+    "output_tokens": 0,
+    "estimated_cost_usd": 0.000144
+  },
+  "pages": [
+    {
+      "source": "delivery-faq.html",
+      "url": null,
+      "error": null,
+      "jsonld_blocks": 1,
+      "invalid_blocks": [],
+      "types": [
+        "FAQPage"
+      ],
+      "visible_text_tokens": 102,
+      "parts": 1,
+      "claims": [
+        {
+          "id": "c1",
+          "item": "FAQPage",
+          "property": "question",
+          "value": "How long does delivery take?",
+          "paths": [
+            {
+              "block": 1,
+              "path": "mainEntity[0].name"
+            }
+          ],
+          "probability": 0.98,
+          "verdict": "supported",
+          "reason": null
+        },
+        {
+          "id": "c2",
+          "item": "FAQPage",
+          "property": "answer to \"How long does delivery take?\"",
+          "value": "Orders arrive in 2 to 4 working days.",
+          "paths": [
+            {
+              "block": 1,
+              "path": "mainEntity[0].acceptedAnswer.text"
+            }
+          ],
+          "probability": 0.95,
+          "verdict": "supported",
+          "reason": null
+        },
+        {
+          "id": "c3",
+          "item": "FAQPage",
+          "property": "question",
+          "value": "Can I return shoes I have worn?",
+          "paths": [
+            {
+              "block": 1,
+              "path": "mainEntity[1].name"
+            }
+          ],
+          "probability": 0.97,
+          "verdict": "supported",
+          "reason": null
+        },
+        {
+          "id": "c4",
+          "item": "FAQPage",
+          "property": "answer to \"Can I return shoes I have worn?\"",
+          "value": "Yes, within 60 days of delivery.",
+          "paths": [
+            {
+              "block": 1,
+              "path": "mainEntity[1].acceptedAnswer.text"
+            }
+          ],
+          "probability": 0.04,
+          "verdict": "unsupported",
+          "reason": null
+        },
+        {
+          "id": "c5",
+          "item": "FAQPage",
+          "property": "question",
+          "value": "Do you ship to Canada?",
+          "paths": [
+            {
+              "block": 1,
+              "path": "mainEntity[2].name"
+            }
+          ],
+          "probability": 0.94,
+          "verdict": "supported",
+          "reason": null
+        },
+        {
+          "id": "c6",
+          "item": "FAQPage",
+          "property": "answer to \"Do you ship to Canada?\"",
+          "value": "Yes, we ship to every province.",
+          "paths": [
+            {
+              "block": 1,
+              "path": "mainEntity[2].acceptedAnswer.text"
+            }
+          ],
+          "probability": 0.46,
+          "verdict": "review",
+          "reason": "unsure"
+        }
+      ]
+    },
+    {
+      "source": "shoe-care-guide.html",
+      "url": null,
+      "error": null,
+      "jsonld_blocks": 2,
+      "invalid_blocks": [
+        {
+          "block": 2,
+          "line": 41,
+          "error": "invalid"
+        }
+      ],
+      "types": [
+        "BlogPosting",
+        "Person",
+        "Organization"
+      ],
+      "visible_text_tokens": 94,
+      "parts": 1,
+      "claims": [
+        {
+          "id": "c1",
+          "item": "BlogPosting",
+          "property": "headline",
+          "value": "How to dry wet trail shoes",
+          "paths": [
+            {
+              "block": 1,
+              "path": "@graph[0].headline"
+            }
+          ],
+          "probability": 0.98,
+          "verdict": "supported",
+          "reason": null
+        },
+        {
+          "id": "c2",
+          "item": "How to dry wet trail shoes (BlogPosting)",
+          "property": "author",
+          "value": "Rosa Lind",
+          "paths": [
+            {
+              "block": 1,
+              "path": "@graph[0].author"
+            }
+          ],
+          "probability": 0.96,
+          "verdict": "supported",
+          "reason": null
+        },
+        {
+          "id": "c3",
+          "item": "How to dry wet trail shoes (BlogPosting)",
+          "property": "date published",
+          "value": "2 March 2026",
+          "raw": "2026-03-02T08:00:00+00:00",
+          "paths": [
+            {
+              "block": 1,
+              "path": "@graph[0].datePublished"
+            }
+          ],
+          "probability": 0.93,
+          "verdict": "supported",
+          "reason": null
+        },
+        {
+          "id": "c4",
+          "item": "How to dry wet trail shoes (BlogPosting)",
+          "property": "date modified",
+          "value": "19 August 2026",
+          "raw": "2026-08-19T14:30:00+00:00",
+          "paths": [
+            {
+              "block": 1,
+              "path": "@graph[0].dateModified"
+            }
+          ],
+          "probability": 0.06,
+          "verdict": "unsupported",
+          "reason": null
+        },
+        {
+          "id": "c5",
+          "item": "Northfield Outfitters (Organization)",
+          "property": "address",
+          "value": "14 Quarry Lane, Sampleton, 00014, US",
+          "paths": [
+            {
+              "block": 1,
+              "path": "@graph[2].address"
+            }
+          ],
+          "probability": 0.87,
+          "verdict": "supported",
+          "reason": null
+        },
+        {
+          "id": "c6",
+          "item": "Northfield Outfitters (Organization)",
+          "property": "phone number",
+          "value": "+1-415-555-0142",
+          "paths": [
+            {
+              "block": 1,
+              "path": "@graph[2].telephone"
+            }
+          ],
+          "probability": 0.03,
+          "verdict": "unsupported",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "source": "trail-runner.html",
+      "url": null,
+      "error": null,
+      "jsonld_blocks": 1,
+      "invalid_blocks": [],
+      "types": [
+        "Product"
+      ],
+      "visible_text_tokens": 70,
+      "parts": 1,
+      "claims": [
+        {
+          "id": "c1",
+          "item": "Trail Runner 2 (Product)",
+          "property": "price",
+          "value": "129.00 USD",
+          "paths": [
+            {
+              "block": 1,
+              "path": "offers.price"
+            }
+          ],
+          "probability": 0.41,
+          "verdict": "review",
+          "reason": "unsure"
+        },
+        {
+          "id": "c2",
+          "item": "Trail Runner 2 (Product)",
+          "property": "availability",
+          "value": "in stock",
+          "raw": "https://schema.org/InStock",
+          "paths": [
+            {
+              "block": 1,
+              "path": "offers.availability"
+            }
+          ],
+          "probability": 0.95,
+          "verdict": "supported",
+          "reason": null
+        },
+        {
+          "id": "c3",
+          "item": "Trail Runner 2 (Product)",
+          "property": "average rating",
+          "value": "4.6 out of 5",
+          "paths": [
+            {
+              "block": 1,
+              "path": "aggregateRating.ratingValue"
+            }
+          ],
+          "probability": 0.97,
+          "verdict": "supported",
+          "reason": null
+        },
+        {
+          "id": "c4",
+          "item": "Trail Runner 2 (Product)",
+          "property": "number of ratings",
+          "value": "312",
+          "paths": [
+            {
+              "block": 1,
+              "path": "aggregateRating.ratingCount"
+            }
+          ],
+          "probability": 0.08,
+          "verdict": "unsupported",
+          "reason": null
+        },
+        {
+          "id": "c5",
+          "item": "Trail Runner 2 (Product)",
+          "property": "review author",
+          "value": "Dana K.",
+          "paths": [
+            {
+              "block": 1,
+              "path": "review[0].author"
+            }
+          ],
+          "probability": 0.96,
+          "verdict": "supported",
+          "reason": null
+        },
+        {
+          "id": "c6",
+          "item": "Trail Runner 2 (Product)",
+          "property": "rating in the review by Dana K.",
+          "value": "5 out of 5",
+          "paths": [
+            {
+              "block": 1,
+              "path": "review[0].reviewRating.ratingValue"
+            }
+          ],
+          "probability": 0.93,
+          "verdict": "supported",
+          "reason": null
+        },
+        {
+          "id": "c7",
+          "item": "Trail Runner 2 (Product)",
+          "property": "review author",
+          "value": "Sam P.",
+          "paths": [
+            {
+              "block": 1,
+              "path": "review[1].author"
+            }
+          ],
+          "probability": 0.05,
+          "verdict": "unsupported",
+          "reason": null
+        },
+        {
+          "id": "c8",
+          "item": "Trail Runner 2 (Product)",
+          "property": "rating in the review by Sam P.",
+          "value": "2 out of 5",
+          "paths": [
+            {
+              "block": 1,
+              "path": "review[1].reviewRating.ratingValue"
+            }
+          ],
+          "probability": 0.04,
+          "verdict": "unsupported",
+          "reason": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "schema-truth",
+  "version": "1.0.0",
+  "description": "Checks whether the values in a page's JSON-LD (prices, ratings, reviews, authors, dates, FAQ answers, addresses) are shown in the text visitors see, using TypeSafe's Jev model.",
+  "type": "module",
+  "bin": {
+    "schema-truth": "bin/schema-truth.mjs"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "json-ld",
+    "structured-data",
+    "schema-org",
+    "seo",
+    "rich-results",
+    "typesafe",
+    "jev"
+  ],
+  "author": "Hamza Ahmad Aslam (https://hamzaahmadaslam.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamzaahmadaslam/schema-truth.git"
+  },
+  "homepage": "https://github.com/hamzaahmadaslam/schema-truth#readme",
+  "bugs": {
+    "url": "https://github.com/hamzaahmadaslam/schema-truth/issues"
+  }
+}

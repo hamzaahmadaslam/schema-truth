@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Trail Runner 2 | Northfield Outfitters</title>
+<!-- A made-up product page for the schema-truth example. The shop, product, prices and reviews are invented. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Trail Runner 2",
+  "brand": { "@type": "Brand", "name": "Northfield" },
+  "offers": {
+    "@type": "Offer",
+    "price": "129.00",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://shop.example/trail-runner-2"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "bestRating": "5",
+    "ratingCount": "312"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Dana K." },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Sam P." },
+      "reviewRating": { "@type": "Rating", "ratingValue": "2", "bestRating": "5" }
+    }
+  ]
+}
+</script>
+<style>
+  .price s { color: #595959; }
+</style>
+</head>
+<body>
+<header>
+  <nav><a href="/">Northfield Outfitters</a> <a href="/shoes">Shoes</a> <a href="/help/delivery">Delivery</a></nav>
+</header>
+<main>
+  <h1>Trail Runner 2</h1>
+  <p class="price">Was <s>$129.00</s>, now <strong>$109.00</strong> until Sunday</p>
+  <p>In stock. Ships the next working day.</p>
+  <p>Rated 4.6 out of 5 from 48 reviews</p>
+  <section>
+    <h2>Reviews</h2>
+    <article>
+      <h3>Dana K.</h3>
+      <p><span aria-hidden="true">&starf;&starf;&starf;&starf;&starf;</span> 5 out of 5</p>
+      <p>Light, grippy and dry again an hour after a wet trail.</p>
+    </article>
+    <div class="reviews-archive" hidden>
+      <article>
+        <h3>Sam P.</h3>
+        <p>2 out of 5</p>
+        <p>Too narrow for me.</p>
+      </article>
+    </div>
+  </section>
+</main>
+<footer>
+  <p>&copy; 2026 Northfield Outfitters</p>
+</footer>
+<script>
+  document.documentElement.classList.add("js");
+</script>
+</body>
+</html>

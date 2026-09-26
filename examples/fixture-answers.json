@@ -1,0 +1,9 @@
+{
+  "note": "Hand-written probabilities for the example and the tests. They were not recorded from TypeSafe.",
+  "model": "jev-1.13.0",
+  "answers": {
+    "delivery-faq.html": { "c1": 0.98, "c2": 0.95, "c3": 0.97, "c4": 0.04, "c5": 0.94, "c6": 0.46 },
+    "shoe-care-guide.html": { "c1": 0.98, "c2": 0.96, "c3": 0.93, "c4": 0.06, "c5": 0.87, "c6": 0.03 },
+    "trail-runner.html": { "c1": 0.41, "c2": 0.95, "c3": 0.97, "c4": 0.08, "c5": 0.96, "c6": 0.93, "c7": 0.05, "c8": 0.04 }
+  }
+}
