@@ -281,7 +281,7 @@ export function fragmentText(fragment) {
 
 /** Strips what pages wrap JSON-LD in (HTML comments, CDATA markers, a trailing semicolon) around the JSON itself. */
 function unwrap(raw) {
-  let text = raw.replace(/^﻿/, "").trim();
+  let text = raw.replace(/^\uFEFF/, "").trim();
   let before;
   do {
     before = text;

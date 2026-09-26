@@ -115,7 +115,7 @@ test("character references: the Latin-1 table, Windows-1252 numbers, bad numbers
 
 test("decodeHtml: byte order mark, Content-Type charset, <meta> charset, then UTF-8", () => {
   const latin1 = (text) => Buffer.from(text, "latin1");
-  assert.equal(decodeHtml(Buffer.from("﻿café", "utf8")), "café");
+  assert.equal(decodeHtml(Buffer.from("\uFEFFcafé", "utf8")), "café");
   assert.equal(decodeHtml(latin1("price \x80 5"), "text/html; charset=windows-1252"), "price € 5");
   assert.equal(decodeHtml(latin1('<meta charset="iso-8859-1"><p>caf\xe9</p>')), '<meta charset="iso-8859-1"><p>café</p>');
   assert.equal(
